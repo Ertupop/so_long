@@ -3,25 +3,31 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ertupop <ertupop@student.42.fr>            +#+  +:+       +#+         #
+#    By: rstrub <rstrub@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/21 10:59:33 by rstrub            #+#    #+#              #
-#    Updated: 2022/04/06 10:19:24 by ertupop          ###   ########.fr        #
+#    Updated: 2022/04/13 14:12:19 by rstrub           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS  =
+SRCS  = SRC/so_long.c
 
 OBJS  = ${SRCS:.c=.o}
-NAME  = pipex
+NAME  = so_long
 HEADER = so_long.h
-.c.o:
-	gcc -Wall -Wextra -Werror -g -c $< -o ${<:.c=.o}
+CC = cc
+MLX = mlx/libmlx_Linux.a
+
+%.o: %.c
+	$(CC) -g3 -DBUFFER_SIZE=1 -Wall -Wextra -Werror -I/usr/include -Imlx -O0 -c $< -o $@
+
+$(NAME): $(OBJS) $(MLX)
+	$(CC) $(OBJS) -g3 -Lmlx -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz -o $(NAME)
+
+$(MLX):
+	make -C ./mlx
 
 all:		${NAME}
-
-$(NAME):	${OBJS} ${HEADER}
-			ar rcs ${NAME} ${OBJS}
 
 clean:
 			rm -f ${OBJS}

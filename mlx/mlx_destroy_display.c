@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   mlx_destroy_display.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rstrub <rstrub@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mg <mg@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/07 15:30:58 by ertupop           #+#    #+#             */
-/*   Updated: 2022/04/13 14:17:19 by rstrub           ###   ########.fr       */
+/*   Created: 2020/10/03 18:56:35 by mg                #+#    #+#             */
+/*   Updated: 2020/10/04 01:55:35 by mg               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Include/so_long.h"
+#include "mlx_int.h"
 
-int	main(void)
+int	mlx_destroy_display(t_xvar *xvar)
 {
-	t_vars	so_long;
-
-	so_long.mlx = mlx_init();
-	if (!so_long.mlx)
-		return (-1);
-	so_long.win = mlx_new_window(so_long.mlx, 500, 500, "So_long");
-	mlx_loop(so_long.mlx);
-	return (1);
+	XCloseDisplay(xvar->display);
 }
