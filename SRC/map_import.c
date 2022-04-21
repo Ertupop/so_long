@@ -6,7 +6,7 @@
 /*   By: ertupop <ertupop@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 13:15:54 by rstrub            #+#    #+#             */
-/*   Updated: 2022/04/21 15:59:37 by ertupop          ###   ########.fr       */
+/*   Updated: 2022/04/21 16:34:46 by ertupop          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,22 @@
 char	**ft_map_import(char *map_path)
 {
 	int		i;
+	int		i2;
 	int		fd;
 	char	*line;
 	char	**map;
 
 	i = ft_nb_line(map_path);
+	i2 = 0;
 	map = malloc(sizeof(char *) * (i + 1));
 	if (!map)
 		return (NULL);
-	fd = open(map_path, O_RDONLY);
-	if (fd < 0)
-		return (NULL);
 	map[i] = NULL;
-	i = 0;
-	line = get_next_line(fd);
-	map[i] = ft_map_add(line);
-	while (line != NULL)
+	while (i2 < i)
 	{
-		free(line);
-		line = NULL;
-		line = get_next_line(fd);
-		map[i] = ft_map_add(line);
+		map[i2] = get_next_line(fd);
+		i2++;
 	}
-	close(fd);
 	return (map);
 }
 
@@ -62,39 +55,25 @@ int	ft_nb_line(char *map)
 	return (i);
 }
 
-char	*ft_map_add(char *line)
-{
-	int		count;
-	int		i;
-	char	*map;
-
-	count = 0;
-	i = 0;
-	count = ft_strlen(line);
-	map = malloc(sizeof(char) * (count + 1));
-	if (!map)
-		return (NULL);
-	while (line[i] && map[i])
-	{
-		map[i] = line[i];
-		i++;
-	}
-	//map[i] = '\0';
-	return (map);
-}
-
 int	main(void)
 {
 	char	**map;
 	int		i;
-	int		returnv;
+	int		i2;
+	char	c;
 
 	i = -1;
 	printf("nombre de ligne %d\n",ft_nb_line("../Maps/test.ber"));
 	map = ft_map_import("../Maps/test.ber");
 	while (map[++i] != NULL)
 	{
-		printf("%s\n", map[i]);
+		i2 = 0;
+		while (map[i][i2])
+		{
+			c = map[i][i2];
+			write(1, &c, 1);
+			i2++;
+		}
 	}
 	return (0);
 }
