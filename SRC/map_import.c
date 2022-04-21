@@ -6,7 +6,7 @@
 /*   By: ertupop <ertupop@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 13:15:54 by rstrub            #+#    #+#             */
-/*   Updated: 2022/04/21 16:34:46 by ertupop          ###   ########.fr       */
+/*   Updated: 2022/04/21 20:34:23 by ertupop          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,22 @@ char	**ft_map_import(char *map_path)
 	int		i;
 	int		i2;
 	int		fd;
-	char	*line;
 	char	**map;
 
 	i = ft_nb_line(map_path);
+	printf("nline : %i\n", i);
 	i2 = 0;
 	map = malloc(sizeof(char *) * (i + 1));
 	if (!map)
 		return (NULL);
 	map[i] = NULL;
+	fd = open(map_path, O_RDONLY);
 	while (i2 < i)
 	{
 		map[i2] = get_next_line(fd);
 		i2++;
 	}
+	close(fd);
 	return (map);
 }
 
@@ -59,12 +61,15 @@ int	main(void)
 {
 	char	**map;
 	int		i;
+	int		count;
 	int		i2;
 	char	c;
 
 	i = -1;
 	printf("nombre de ligne %d\n",ft_nb_line("../Maps/test.ber"));
+	count = ft_nb_line("../Maps/test.ber");
 	map = ft_map_import("../Maps/test.ber");
+
 	while (map[++i] != NULL)
 	{
 		i2 = 0;
