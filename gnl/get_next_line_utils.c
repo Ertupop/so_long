@@ -6,11 +6,11 @@
 /*   By: ertupop <ertupop@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 14:52:48 by rstrub            #+#    #+#             */
-/*   Updated: 2022/02/01 10:09:22 by ertupop          ###   ########.fr       */
+/*   Updated: 2022/04/21 13:47:42 by ertupop          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../Include/get_next_line.h"
 
 int	ft_check_buffer(char *buffer)
 {

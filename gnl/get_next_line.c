@@ -6,11 +6,11 @@
 /*   By: ertupop <ertupop@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 14:51:32 by rstrub            #+#    #+#             */
-/*   Updated: 2022/02/01 10:11:11 by ertupop          ###   ########.fr       */
+/*   Updated: 2022/04/21 13:52:28 by ertupop          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../Include/get_next_line.h"
 
 char	*ft_init(char *cp)
 {

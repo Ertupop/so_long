@@ -6,15 +6,16 @@
 /*   By: ertupop <ertupop@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 15:30:58 by ertupop           #+#    #+#             */
-/*   Updated: 2022/04/21 10:35:35 by ertupop          ###   ########.fr       */
+/*   Updated: 2022/04/21 09:12:37 by ertupop          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/so_long.h"
 
-int	main(int	ac, char **av)
+int	main(int ac, char **av)
 {
 	t_vars	so_long;
+
 	if (ac != 2)
 		return (write(1, "arg error", 9));
 	if (map_checker(av[1]) = 1)

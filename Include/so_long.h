@@ -6,7 +6,7 @@
 /*   By: ertupop <ertupop@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 10:19:35 by ertupop           #+#    #+#             */
-/*   Updated: 2022/04/15 11:25:48 by ertupop          ###   ########.fr       */
+/*   Updated: 2022/04/21 15:37:10 by ertupop          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,16 @@
 
 # include "../mlx/mlx.h"
 # include "get_next_line.h"
+# include <stdio.h>
 
-	typedef struct s_vars {
-		void	*mlx;
-		void	*win;
-	}				t_vars;
-int	map_checker();
+typedef struct s_vars {
+	void	*mlx;
+	void	*win;
+	char	**map;
+}				t_vars;
+
+char		**ft_map_import(char *map_path);
+int		ft_nb_line(char *map);
+char	*ft_map_add(char *line);
 #endif
 
