@@ -6,7 +6,7 @@
 /*   By: ertupop <ertupop@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 15:30:58 by ertupop           #+#    #+#             */
-/*   Updated: 2022/04/21 09:12:37 by ertupop          ###   ########.fr       */
+/*   Updated: 2022/04/22 09:20:02 by ertupop          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 		return (write(1, "arg error", 9));
-	if (map_checker(av[1]) = 1)
+	if (map_checker(av[1]) == 1)
 		return (write(1, "map erorr", 9));
 	so_long.mlx = mlx_init();
 	if (!so_long.mlx)
