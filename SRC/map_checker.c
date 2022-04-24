@@ -6,7 +6,7 @@
 /*   By: ertupop <ertupop@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 09:26:35 by ertupop           #+#    #+#             */
-/*   Updated: 2022/04/22 16:11:55 by ertupop          ###   ########.fr       */
+/*   Updated: 2022/04/23 06:56:55 by ertupop          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,33 @@ int	ft_check_wall(char **map)
 
 int	ft_check_content(char **map)
 {
+	int	c;
+	int	e;
+	int	p;
+	int	i;
+	int	i2;
+
+	c = 0;
+	e = 0;
+	p = 0;
+	i = 0;
+	while(map[i] != NULL)
+	{
+		i2 = 0;
+		while(map[i][i2])
+		{
+			if (map[i][i2] == 'C')
+				c++;
+			if (map[i][i2] == 'E')
+				e++;
+			if (map[i][i2] == 'P')
+				p++;
+			i2++;
+		}
+		i++;
+	}
+	if (c < 1 || e < 1 || p < 1)
+		return (1);
 	return (0);
 }
 
@@ -90,5 +117,7 @@ int	main(void)
 	printf("valeur de i pour check len :%d\n", i);
 	i = ft_check_wall(map);
 	printf("valeur de i pour check wall :%d\n", i);
+	i = ft_check_content(map);
+	printf("la valeur de i pour check content : %d\n", i);
 	return (0);
 }
