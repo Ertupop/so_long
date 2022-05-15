@@ -6,7 +6,7 @@
 /*   By: ertupop <ertupop@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 15:30:58 by ertupop           #+#    #+#             */
-/*   Updated: 2022/04/27 15:26:57 by ertupop          ###   ########.fr       */
+/*   Updated: 2022/05/11 15:42:45 by ertupop          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ int	main(int ac, char **av)
 		return (-1);
 	so_long.win = mlx_new_window(so_long.mlx, 500, 500, "So_long");
 	mlx_loop(so_long.mlx);
-	mlx_new_image(so_long.mlx,0, 0);
+
 	return (1);
 }
