@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ertupop <ertupop@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rstrub <rstrub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 09:26:35 by ertupop           #+#    #+#             */
-/*   Updated: 2022/04/23 06:56:55 by ertupop          ###   ########.fr       */
+/*   Updated: 2022/05/16 06:57:16 by rstrub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,10 @@ int	ft_check_content(char **map)
 	e = 0;
 	p = 0;
 	i = 0;
-	while(map[i] != NULL)
+	while (map[i] != NULL)
 	{
 		i2 = 0;
-		while(map[i][i2])
+		while (map[i][i2])
 		{
 			if (map[i][i2] == 'C')
 				c++;
@@ -100,7 +100,7 @@ int	ft_check_content(char **map)
 		return (1);
 	return (0);
 }
-
+/*
 int	main(void)
 {
 	char	**map;
@@ -120,4 +120,4 @@ int	main(void)
 	i = ft_check_content(map);
 	printf("la valeur de i pour check content : %d\n", i);
 	return (0);
-}
+}*/

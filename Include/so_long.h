@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ertupop <ertupop@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rstrub <rstrub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 10:19:35 by ertupop           #+#    #+#             */
-/*   Updated: 2022/04/27 15:26:45 by ertupop          ###   ########.fr       */
+/*   Updated: 2022/05/16 06:59:54 by rstrub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_vars {
 	void	*wall;
 	void	*exit;
 	void	*collect;
-	void	player[4];
+//	void	player[4];
 }				t_vars;
 
 //gestion de la map
@@ -37,11 +37,14 @@ int		ft_map_checker(char **map);
 int		ft_check_len(char **map);
 int		ft_check_wall(char **map);
 int		ft_check_content(char **map);
+int		ft_error(int error);
+int		ft_map_error(int error);
 
 //gestion erreur
-int ft_error(int error);
-int ft_map_error(int error);
+int		ft_error(int error);
+int		ft_map_error(int error);
 
 //
 void	*ft_load_img(t_vars *so_long);
+void	*put_img(t_vars *so_long);
 #endif

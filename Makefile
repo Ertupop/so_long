@@ -6,11 +6,11 @@
 #    By: rstrub <rstrub@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/21 10:59:33 by rstrub            #+#    #+#              #
-#    Updated: 2022/04/13 14:12:19 by rstrub           ###   ########.fr        #
+#    Updated: 2022/05/16 07:25:56 by rstrub           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS  = SRC/so_long.c
+SRCS  = SRC/so_long.c SRC/ft_error.c SRC/ft_load_img.c SRC/map_checker.c SRC/map_import.c gnl/get_next_line.c gnl/get_next_line_utils.c
 
 OBJS  = ${SRCS:.c=.o}
 NAME  = so_long
@@ -22,7 +22,7 @@ MLX = mlx/libmlx_Linux.a
 	$(CC) -g3 -DBUFFER_SIZE=1 -Wall -Wextra -Werror -I/usr/include -Imlx -O0 -c $< -o $@
 
 $(NAME): $(OBJS) $(MLX)
-	$(CC) $(OBJS) -g3 -Lmlx -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) $(OBJS) -g3 -Lmlx -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz -o $(NAME) -g3 -fsanitize=address
 
 $(MLX):
 	make -C ./mlx
