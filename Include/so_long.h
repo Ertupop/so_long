@@ -6,7 +6,7 @@
 /*   By: rstrub <rstrub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 10:19:35 by ertupop           #+#    #+#             */
-/*   Updated: 2022/05/17 08:13:23 by rstrub           ###   ########.fr       */
+/*   Updated: 2022/05/17 09:15:02 by rstrub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_vars {
 	void	*wall;
 	void	*exit;
 	void	*collect;
-//	void	player[4];
+	void	*player;
 	int		playerx;
 	int		playery;
 	int		sizex;
