@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_import.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ertupop <ertupop@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rstrub <rstrub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 13:15:54 by rstrub            #+#    #+#             */
-/*   Updated: 2022/04/22 15:05:15 by ertupop          ###   ########.fr       */
+/*   Updated: 2022/05/17 08:13:40 by rstrub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ char	**ft_map_import(char *map_path)
 	while (i2 < i)
 	{
 		map[i2] = get_next_line(fd);
+		if (map[i2] == NULL)
+			return (ft_free_map(i2, map));
 		i2++;
 	}
 	close(fd);
@@ -76,6 +78,20 @@ int	ft_nb_line(char *map)
 	return (i);
 }
 
+char	**ft_free_map(int i2, char **map)
+{
+	int	i;
+
+	i = 0;
+	while (i < i2)
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
+	map = NULL;
+	return (NULL);
+}
 /*int	main(int ac, char **av)
 {
 	int	i;

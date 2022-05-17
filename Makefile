@@ -6,11 +6,13 @@
 #    By: rstrub <rstrub@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/21 10:59:33 by rstrub            #+#    #+#              #
-#    Updated: 2022/05/16 07:25:56 by rstrub           ###   ########.fr        #
+#    Updated: 2022/05/17 07:44:33 by rstrub           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS  = SRC/so_long.c SRC/ft_error.c SRC/ft_load_img.c SRC/map_checker.c SRC/map_import.c gnl/get_next_line.c gnl/get_next_line_utils.c
+SRCS  = SRC/so_long.c SRC/ft_error.c SRC/ft_load_img.c SRC/map_checker.c \
+	    SRC/map_import.c gnl/get_next_line.c gnl/get_next_line_utils.c \
+		    SRC/ft_map_info.c
 
 OBJS  = ${SRCS:.c=.o}
 NAME  = so_long

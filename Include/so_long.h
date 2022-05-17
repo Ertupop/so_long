@@ -6,7 +6,7 @@
 /*   By: rstrub <rstrub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 10:19:35 by ertupop           #+#    #+#             */
-/*   Updated: 2022/05/16 06:59:54 by rstrub           ###   ########.fr       */
+/*   Updated: 2022/05/17 08:13:23 by rstrub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ typedef struct s_vars {
 	void	*exit;
 	void	*collect;
 //	void	player[4];
+	int		playerx;
+	int		playery;
+	int		sizex;
+	int		sizey;
 }				t_vars;
 
 //gestion de la map
@@ -43,6 +47,8 @@ int		ft_map_error(int error);
 //gestion erreur
 int		ft_error(int error);
 int		ft_map_error(int error);
+void	ft_map_info(t_vars *so);
+char	**ft_free_map(int i2, char **map);
 
 //
 void	*ft_load_img(t_vars *so_long);
