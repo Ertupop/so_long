@@ -6,7 +6,7 @@
 /*   By: rstrub <rstrub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 10:19:35 by ertupop           #+#    #+#             */
-/*   Updated: 2022/05/20 09:38:55 by rstrub           ###   ########.fr       */
+/*   Updated: 2022/05/20 11:05:10 by rstrub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_vars {
 	int		sizex;
 	int		sizey;
 	int		c;
+	int		walk;
 }				t_vars;
 
 //gestion de la map

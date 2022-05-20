@@ -6,7 +6,7 @@
 /*   By: rstrub <rstrub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 15:30:58 by ertupop           #+#    #+#             */
-/*   Updated: 2022/05/20 10:43:44 by rstrub           ###   ########.fr       */
+/*   Updated: 2022/05/20 11:05:59 by rstrub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_init_struct(t_vars *s)
 	s->exit = NULL;
 	s->collect = NULL;
 	s->player = NULL;
-
+	s->walk = 0;
 }
 
 int	ft_hook(int key, t_vars *so)
@@ -48,6 +48,7 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 		return (write(1, "arg error\n", 10));
+	ft_init_struct(&so_long);
 	so_long.map = ft_map_import(av[1]);
 	if (so_long.map == NULL)
 		return (ft_error(4));

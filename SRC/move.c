@@ -6,7 +6,7 @@
 /*   By: rstrub <rstrub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 08:14:13 by rstrub            #+#    #+#             */
-/*   Updated: 2022/05/20 10:52:34 by rstrub           ###   ########.fr       */
+/*   Updated: 2022/05/20 11:24:11 by rstrub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ft_up(t_vars *so)
 		}
 		mlx_put_image_to_window(so->mlx, so->win, so->player, so->playerx * 32,
 			so->playery * 32);
+		so->walk++;
 		if (so->map[so->playery][so->playerx] == 'E')
 			ft_leave(so);
 	}
@@ -53,6 +54,7 @@ void	ft_down(t_vars *so)
 		}
 		mlx_put_image_to_window(so->mlx, so->win, so->player, so->playerx * 32,
 			so->playery * 32);
+		so->walk++;
 		if (so->map[so->playery][so->playerx] == 'E')
 			ft_leave(so);
 	}
@@ -76,6 +78,7 @@ void	ft_left(t_vars *so)
 		}
 		mlx_put_image_to_window(so->mlx, so->win, so->player, so->playerx * 32,
 			so->playery * 32);
+		so->walk++;
 		if (so->map[so->playery][so->playerx] == 'E')
 			ft_leave(so);
 	}
@@ -99,6 +102,7 @@ void	ft_right(t_vars *so)
 		}
 		mlx_put_image_to_window(so->mlx, so->win, so->player, so->playerx * 32,
 			so->playery * 32);
+		so->walk++;
 		if (so->map[so->playery][so->playerx] == 'E')
 			ft_leave(so);
 	}
