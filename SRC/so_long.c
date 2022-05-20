@@ -6,7 +6,7 @@
 /*   By: rstrub <rstrub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 15:30:58 by ertupop           #+#    #+#             */
-/*   Updated: 2022/05/20 11:05:59 by rstrub           ###   ########.fr       */
+/*   Updated: 2022/05/20 11:58:30 by rstrub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ void	ft_init_struct(t_vars *s)
 
 int	ft_hook(int key, t_vars *so)
 {
-	(void) so;
-	printf("hook : %d\n", key);
 	if (key == 119 || key == 65362)
 		ft_up(so);
 	else if (key == 115 || key == 65364)

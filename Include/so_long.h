@@ -6,7 +6,7 @@
 /*   By: rstrub <rstrub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 10:19:35 by ertupop           #+#    #+#             */
-/*   Updated: 2022/05/20 11:05:10 by rstrub           ###   ########.fr       */
+/*   Updated: 2022/05/20 11:49:09 by rstrub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 # include "../mlx/mlx.h"
-# include "../mlx/mlx_int.h"
+# include "../printf/ft_printf.h"
 # include "get_next_line.h"
 # include <stdio.h>
 
