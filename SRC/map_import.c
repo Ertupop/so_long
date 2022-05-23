@@ -6,7 +6,7 @@
 /*   By: rstrub <rstrub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 13:15:54 by rstrub            #+#    #+#             */
-/*   Updated: 2022/05/17 08:13:40 by rstrub           ###   ########.fr       */
+/*   Updated: 2022/05/23 15:12:32 by rstrub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ char	**ft_map_import(char *map_path)
 		return (NULL);
 	map[i] = NULL;
 	fd = open(map_path, O_RDONLY);
+	if (fd < 0)
+		return (NULL);
 	while (i2 < i)
 	{
 		map[i2] = get_next_line(fd);

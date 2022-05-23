@@ -6,7 +6,7 @@
 /*   By: rstrub <rstrub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 14:57:08 by ertupop           #+#    #+#             */
-/*   Updated: 2022/05/16 07:54:42 by rstrub           ###   ########.fr       */
+/*   Updated: 2022/05/23 14:49:27 by rstrub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	ft_error(int error)
 		return (write(1, "malloc error", 12));
 	else
 		return (0);
-
 }
 
 int	ft_map_error(int error)

@@ -6,7 +6,7 @@
 /*   By: rstrub <rstrub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 10:19:35 by ertupop           #+#    #+#             */
-/*   Updated: 2022/05/20 11:49:09 by rstrub           ###   ########.fr       */
+/*   Updated: 2022/05/23 15:23:12 by rstrub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_vars {
 	void	*wall;
 	void	*exit;
 	void	*collect;
-	void	*player;
+	void	*player[4];
 	int		playerx;
 	int		playery;
 	int		sizex;
@@ -62,8 +62,10 @@ void	ft_left(t_vars *so);
 void	ft_right(t_vars *so);
 
 //
+void	ft_load(t_vars *so_long, int x, int y);
 void	*ft_load_img(t_vars *so_long);
 void	*put_img(t_vars *so_long);
 void	ft_leave(t_vars *so);
 void	ft_free_m(t_vars *so);
+int		ft_mouse(t_vars *so);
 #endif

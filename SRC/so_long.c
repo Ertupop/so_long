@@ -6,7 +6,7 @@
 /*   By: rstrub <rstrub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 15:30:58 by ertupop           #+#    #+#             */
-/*   Updated: 2022/05/20 11:58:30 by rstrub           ###   ########.fr       */
+/*   Updated: 2022/05/23 15:29:23 by rstrub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ void	ft_init_struct(t_vars *s)
 	s->wall = NULL;
 	s->exit = NULL;
 	s->collect = NULL;
-	s->player = NULL;
+	s->player[0] = NULL;
+	s->player[1] = NULL;
+	s->player[2] = NULL;
+	s->player[3] = NULL;
 	s->walk = 0;
 }
 
@@ -61,7 +64,9 @@ int	main(int ac, char **av)
 			so_long.sizey * 32, "So_long");
 	put_img(&so_long);
 	mlx_key_hook(so_long.win, &ft_hook, &so_long);
-	mlx_loop(so_long.mlx);
+	mlx_hook(so_long.win, 17, 0, &ft_mouse, &so_long);
+	if (so_long.mlx)
+		mlx_loop(so_long.mlx);
 	mlx_destroy_display(so_long.mlx);
 	free(so_long.mlx);
 	return (1);

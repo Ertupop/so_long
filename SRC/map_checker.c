@@ -6,7 +6,7 @@
 /*   By: rstrub <rstrub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 09:26:35 by ertupop           #+#    #+#             */
-/*   Updated: 2022/05/16 06:57:16 by rstrub           ###   ########.fr       */
+/*   Updated: 2022/05/23 14:56:05 by rstrub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,32 +71,29 @@ int	ft_check_wall(char **map)
 
 int	ft_check_content(char **map)
 {
-	int	c;
-	int	e;
-	int	p;
-	int	i;
+	int	tab[3];
 	int	i2;
+	int	i;
 
-	c = 0;
-	e = 0;
-	p = 0;
-	i = 0;
-	while (map[i] != NULL)
+	tab[0] = 0;
+	tab[1] = 0;
+	tab[2] = 0;
+	i = -1;
+	while (map[++i] != NULL)
 	{
 		i2 = 0;
 		while (map[i][i2])
 		{
 			if (map[i][i2] == 'C')
-				c++;
+				tab[0] = tab[0] + 1;
 			if (map[i][i2] == 'E')
-				e++;
+				tab[1] = tab[1] + 1;
 			if (map[i][i2] == 'P')
-				p++;
+				tab[2] = tab[2] + 1;
 			i2++;
 		}
-		i++;
 	}
-	if (c < 1 || e < 1 || p < 1)
+	if (tab[0] < 1 || tab[1] < 1 || tab[2] < 1)
 		return (1);
 	return (0);
 }

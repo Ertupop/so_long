@@ -6,7 +6,7 @@
 /*   By: rstrub <rstrub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 08:14:13 by rstrub            #+#    #+#             */
-/*   Updated: 2022/05/20 12:03:36 by rstrub           ###   ########.fr       */
+/*   Updated: 2022/05/23 15:28:44 by rstrub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_up(t_vars *so)
 			so->map[so->playery][so->playerx] = '0';
 			so->c--;
 		}
-		mlx_put_image_to_window(so->mlx, so->win, so->player, so->playerx * 32,
+		mlx_put_image_to_window(so->mlx, so->win, so->player[3], so->playerx * 32,
 			so->playery * 32);
 		so->walk++;
 		ft_printf("\rSteps : %d", so->walk);
@@ -53,7 +53,7 @@ void	ft_down(t_vars *so)
 			so->map[so->playery][so->playerx] = '0';
 			so->c--;
 		}
-		mlx_put_image_to_window(so->mlx, so->win, so->player, so->playerx * 32,
+		mlx_put_image_to_window(so->mlx, so->win, so->player[0], so->playerx * 32,
 			so->playery * 32);
 		so->walk++;
 		ft_printf("\rSteps : %d", so->walk);
@@ -78,7 +78,7 @@ void	ft_left(t_vars *so)
 			so->map[so->playery][so->playerx] = '0';
 			so->c--;
 		}
-		mlx_put_image_to_window(so->mlx, so->win, so->player, so->playerx * 32,
+		mlx_put_image_to_window(so->mlx, so->win, so->player[1], so->playerx * 32,
 			so->playery * 32);
 		so->walk++;
 		ft_printf("\rSteps : %d", so->walk);
@@ -103,7 +103,7 @@ void	ft_right(t_vars *so)
 			so->map[so->playery][so->playerx] = '0';
 			so->c--;
 		}
-		mlx_put_image_to_window(so->mlx, so->win, so->player, so->playerx * 32,
+		mlx_put_image_to_window(so->mlx, so->win, so->player[2], so->playerx * 32,
 			so->playery * 32);
 		so->walk++;
 		ft_printf("\rSteps : %d", so->walk);
