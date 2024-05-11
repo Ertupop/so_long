@@ -6,7 +6,7 @@
 /*   By: rostrub <rostrub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:14:41 by rostrub           #+#    #+#             */
-/*   Updated: 2024/05/11 17:50:35 by rostrub          ###   ########.fr       */
+/*   Updated: 2024/05/11 18:25:00 by rostrub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 int	ft_is_playable(t_vars so, char *path)
 {
 	char	**map;
+	int		counter;
 
+	counter = 0;
 	map = ft_map_import(path);
 	if (map == NULL)
 		return (0);
-	if (ft_all_collect(so, map) || ft_find_exit(so, map))
+	if (ft_all_collect(so, map, so.playerx, so.playery, counter))
 		return (0);
 	return (1);
 }
@@ -29,6 +31,8 @@ int	ft_all_collect(t_vars so, char **map, int x, int y, int counter)
 	int	ok;
 
 	ok = 1;
+	if (counter == so.c)
+		return (1);
 	while (ok == 1)
 	{
 		if (map[y + 1][x] != '1' && map[y + 1][x] != 'P')
@@ -66,6 +70,7 @@ int	ft_all_collect(t_vars so, char **map, int x, int y, int counter)
 		else
 			return (0);
 	}
+	return (1);
 }
 
 int	ft_find_exit(t_vars so, char **map)

@@ -6,7 +6,7 @@
 /*   By: rostrub <rostrub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 07:02:45 by rstrub            #+#    #+#             */
-/*   Updated: 2024/04/24 11:17:43 by rostrub          ###   ########.fr       */
+/*   Updated: 2024/05/11 18:15:38 by rostrub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	ft_map_info(t_vars *so)
 			so->playery++;
 	}
 	so->c = ft_collect(so->map);
-	printf ("%d\n", so->c);
 }
 
 int	ft_collect(char **map)

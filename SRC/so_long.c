@@ -6,7 +6,7 @@
 /*   By: rostrub <rostrub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 15:30:58 by ertupop           #+#    #+#             */
-/*   Updated: 2024/05/11 17:56:17 by rostrub          ###   ########.fr       */
+/*   Updated: 2024/05/11 18:16:40 by rostrub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int	ft_hook(int key, t_vars *so)
 int	main(int ac, char **av)
 {
 	t_vars	so_long;
-
 	if (ac != 2)
 		return (write(1, "arg error\n", 10));
 	ft_init_struct(&so_long);
@@ -56,9 +55,9 @@ int	main(int ac, char **av)
 	if (ft_map_checker(so_long.map) != 0)
 		return (ft_error(ft_map_checker(so_long.map)));
 	ft_map_info(&so_long);
-	printf("nome de collectible : %d", so_long.c);
-	// if (ft_is_playable())
-	// 	return (ft_error()); // ici je test si c'est jouable
+	printf("nombre de collectible : %d\n", so_long.c);
+	printf("resultat checker : %d\n", ft_is_playable())
+		// return (ft_error()); // ici je test si c'est jouable
 	// so_long.mlx = mlx_init();
 	// if (!so_long.mlx)
 	// 	return (-1);
