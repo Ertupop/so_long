@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map_info.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rstrub <rstrub@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rostrub <rostrub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 07:02:45 by rstrub            #+#    #+#             */
-/*   Updated: 2022/05/23 14:49:53 by rstrub           ###   ########.fr       */
+/*   Updated: 2024/04/24 11:17:43 by rostrub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_map_info(t_vars *so)
 		so->playerx = 0;
 		while (so->map[so->playery][so->playerx]
 			&& so->map[so->playery][so->playerx] != 'P')
-				so->playerx++;
+			so->playerx++;
 		if (so->map[so->playery][so->playerx] != 'P')
 			so->playery++;
 	}

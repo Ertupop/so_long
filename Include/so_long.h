@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rstrub <rstrub@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rostrub <rostrub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 10:19:35 by ertupop           #+#    #+#             */
-/*   Updated: 2022/05/23 15:23:12 by rstrub           ###   ########.fr       */
+/*   Updated: 2024/04/30 17:07:06 by rostrub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 # include <stdio.h>
 
 //les structures
-typedef struct s_vars {
+typedef struct s_vars
+{
 	void	*mlx;
 	void	*win;
 	char	**map;
@@ -35,6 +36,13 @@ typedef struct s_vars {
 	int		c;
 	int		walk;
 }				t_vars;
+
+typedef struct s_check
+{
+	int		x;
+	int		y;
+	int		counter;
+}				t_check;
 
 //gestion de la map
 char	**ft_map_import(char *map_path);
@@ -53,6 +61,7 @@ int		ft_error(int error);
 int		ft_map_error(int error);
 void	ft_map_info(t_vars *so);
 char	**ft_free_map(int i2, char **map);
+int		**ft_cpy_map(t_vars so_long);
 
 //hook
 int		ft_hook(int key, t_vars *so);

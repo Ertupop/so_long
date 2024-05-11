@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ertupop <ertupop@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rostrub <rostrub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 15:30:58 by ertupop           #+#    #+#             */
-/*   Updated: 2022/06/01 14:29:34 by ertupop          ###   ########.fr       */
+/*   Updated: 2024/05/11 17:56:17 by rostrub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,21 @@ int	main(int ac, char **av)
 	if (ft_map_checker(so_long.map) != 0)
 		return (ft_error(ft_map_checker(so_long.map)));
 	ft_map_info(&so_long);
-	so_long.mlx = mlx_init();
-	if (!so_long.mlx)
-		return (-1);
-	ft_load_img(&so_long);
-	so_long.win = mlx_new_window(so_long.mlx, so_long.sizex * 32,
-			so_long.sizey * 32, "So_long");
-	put_img(&so_long);
-	mlx_key_hook(so_long.win, &ft_hook, &so_long);
-	mlx_hook(so_long.win, 17, 0, &ft_mouse, &so_long);
-	if (so_long.mlx)
-		mlx_loop(so_long.mlx);
-	mlx_destroy_display(so_long.mlx);
-	free(so_long.mlx);
+	printf("nome de collectible : %d", so_long.c);
+	// if (ft_is_playable())
+	// 	return (ft_error()); // ici je test si c'est jouable
+	// so_long.mlx = mlx_init();
+	// if (!so_long.mlx)
+	// 	return (-1);
+	// ft_load_img(&so_long);
+	// so_long.win = mlx_new_window(so_long.mlx, so_long.sizex * 32,
+	// 		so_long.sizey * 32, "So_long");
+	// put_img(&so_long);
+	// mlx_key_hook(so_long.win, &ft_hook, &so_long);
+	// mlx_hook(so_long.win, 17, 0, &ft_mouse, &so_long);
+	// if (so_long.mlx)
+	// 	mlx_loop(so_long.mlx);
+	// mlx_destroy_display(so_long.mlx);
+	// free(so_long.mlx);
 	return (1);
 }

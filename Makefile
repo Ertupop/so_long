@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rstrub <rstrub@student.42.fr>              +#+  +:+       +#+         #
+#    By: rostrub <rostrub@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/21 10:59:33 by rstrub            #+#    #+#              #
-#    Updated: 2022/05/20 12:03:15 by rstrub           ###   ########.fr        #
+#    Updated: 2024/04/24 11:10:03 by rostrub          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,10 +22,10 @@ MLX = mlx/libmlx_Linux.a
 PRINTF = printf/libftprintf.a
 
 %.o: %.c
-	$(CC) -g3 -DBUFFER_SIZE=1 -Wall -Wextra -Werror -I/usr/include -Imlx -O0 -c $< -o $@
+	$(CC) -Wall -Wextra -Werror -I/usr/include -Imlx -O0 -c $< -o $@
 
 $(NAME): $(OBJS) $(MLX) $(PRINTF)
-	$(CC) $(OBJS) -g3 -Lprintf -lftprintf -Lmlx -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) $(OBJS) -Lprintf -lftprintf -Lmlx -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz -o $(NAME)
 
 $(MLX):
 	make -C ./mlx
@@ -37,9 +37,13 @@ all:		${NAME}
 
 clean:
 			rm -f ${OBJS}
+			make -C ./printf clean
+			make -C ./mlx clean
 
 fclean:		clean
 			rm -f ${NAME}
+			make -C ./printf fclean
+			@make -C ./mlx clean
 
 re:			fclean ${NAME}
 
