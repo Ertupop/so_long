@@ -6,7 +6,7 @@
 /*   By: rostrub <rostrub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 15:30:58 by ertupop           #+#    #+#             */
-/*   Updated: 2024/05/11 18:16:40 by rostrub          ###   ########.fr       */
+/*   Updated: 2024/05/11 18:33:37 by rostrub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	main(int ac, char **av)
 		return (ft_error(ft_map_checker(so_long.map)));
 	ft_map_info(&so_long);
 	printf("nombre de collectible : %d\n", so_long.c);
-	printf("resultat checker : %d\n", ft_is_playable())
+	printf("resultat checker : %d\n", ft_is_playable());
 		// return (ft_error()); // ici je test si c'est jouable
 	// so_long.mlx = mlx_init();
 	// if (!so_long.mlx)
