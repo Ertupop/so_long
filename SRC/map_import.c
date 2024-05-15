@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_import.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rstrub <rstrub@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rostrub <rostrub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 13:15:54 by rstrub            #+#    #+#             */
-/*   Updated: 2022/05/23 15:12:32 by rstrub           ###   ########.fr       */
+/*   Updated: 2024/05/15 08:34:47 by rostrub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ char	**ft_map_import(char *map_path)
 			return (ft_free_map(i2, map));
 		i2++;
 	}
+	map[i2] = NULL;
 	close(fd);
 	return (map);
 }

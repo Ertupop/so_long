@@ -6,7 +6,7 @@
 /*   By: rostrub <rostrub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 10:19:35 by ertupop           #+#    #+#             */
-/*   Updated: 2024/04/30 17:07:06 by rostrub          ###   ########.fr       */
+/*   Updated: 2024/05/15 08:31:10 by rostrub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,8 @@ void	*put_img(t_vars *so_long);
 void	ft_leave(t_vars *so);
 void	ft_free_m(t_vars *so);
 int		ft_mouse(t_vars *so);
+
+//ft_is_playable
+int		ft_is_playable(t_vars so, char *path);
+int		ft_all_collect(t_vars so, char **map, int x, int y, int counter);
 #endif
