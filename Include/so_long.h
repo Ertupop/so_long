@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rostrub <rostrub@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ertupop <ertupop@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 10:19:35 by ertupop           #+#    #+#             */
-/*   Updated: 2024/05/15 08:31:10 by rostrub          ###   ########.fr       */
+/*   Updated: 2024/05/15 15:17:56 by ertupop          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,5 @@ int		ft_mouse(t_vars *so);
 
 //ft_is_playable
 int		ft_is_playable(t_vars so, char *path);
-int		ft_all_collect(t_vars so, char **map, int x, int y, int counter);
+int		ft_all_collect(t_vars so, char **map, int x, int y, int *counter);
 #endif
