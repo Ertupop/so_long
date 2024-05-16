@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map_is_plyable.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rostrub <rostrub@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ertupop <ertupop@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:14:41 by rostrub           #+#    #+#             */
-/*   Updated: 2024/05/16 15:18:36 by rostrub          ###   ########.fr       */
+/*   Updated: 2024/05/16 15:19:35 by ertupop          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ft_all_collect(t_vars so, int x, int y, t_check *check)
 	if (check->counter == so.c)
 		return (1);
 	if (check->map[y - 1][x] != '1' && check->map[y - 1][x] != 'P'
-		&& check->map[y - 1][x] != '2' && ok = 0)
+		&& check->map[y - 1][x] != '2' && ok == 0)
 	{
 		if (check->map[y - 1][x] == 'C')
 			check->counter ++;
@@ -57,7 +57,7 @@ int	ft_all_collect(t_vars so, int x, int y, t_check *check)
 		ok = ft_all_collect(so, x, y - 1, check);
 	}
 	if (check->map[y + 1][x] != '1' && check->map[y + 1][x] != 'P'
-			&& check->map[y + 1][x] != '2' && ok = 0)
+			&& check->map[y + 1][x] != '2' && ok == 0)
 	{
 		if (check->map[y + 1][x] == 'C')
 			check->counter ++;
@@ -66,7 +66,7 @@ int	ft_all_collect(t_vars so, int x, int y, t_check *check)
 		ok = ft_all_collect(so, x, y + 1, check);
 	}
 	if (check->map[y][x + 1] != '1' && check->map[y][x + 1] != 'P'
-		&& check->map[y][x + 1] != '2' 77 ok == 0)
+		&& check->map[y][x + 1] != '2' && ok == 0)
 	{
 		if (check->map[y][x + 1] == 'C')
 			check->counter ++;
