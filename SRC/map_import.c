@@ -6,7 +6,7 @@
 /*   By: rostrub <rostrub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 13:15:54 by rstrub            #+#    #+#             */
-/*   Updated: 2024/05/15 08:34:47 by rostrub          ###   ########.fr       */
+/*   Updated: 2024/05/16 14:58:51 by rostrub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	**ft_map_import(char *map_path)
 	if (ft_check_path(map_path, ".ber") == -1)
 		return (NULL);
 	i = ft_nb_line(map_path);
-	i2 = 0;
+	i2 = -1;
 	map = malloc(sizeof(char *) * (i + 1));
 	if (!map)
 		return (NULL);
@@ -30,12 +30,11 @@ char	**ft_map_import(char *map_path)
 	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
 		return (NULL);
-	while (i2 < i)
+	while (++i2 < i)
 	{
 		map[i2] = get_next_line(fd);
 		if (map[i2] == NULL)
 			return (ft_free_map(i2, map));
-		i2++;
 	}
 	map[i2] = NULL;
 	close(fd);

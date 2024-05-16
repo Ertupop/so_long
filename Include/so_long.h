@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ertupop <ertupop@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rostrub <rostrub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 10:19:35 by ertupop           #+#    #+#             */
-/*   Updated: 2024/05/15 15:17:56 by ertupop          ###   ########.fr       */
+/*   Updated: 2024/05/16 14:57:56 by rostrub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ typedef struct s_vars
 
 typedef struct s_check
 {
-	int		x;
-	int		y;
+	char	**map;
 	int		counter;
 }				t_check;
 
@@ -80,5 +79,5 @@ int		ft_mouse(t_vars *so);
 
 //ft_is_playable
 int		ft_is_playable(t_vars so, char *path);
-int		ft_all_collect(t_vars so, char **map, int x, int y, int *counter);
+int		ft_all_collect(t_vars so, int x, int y, t_check *check);
 #endif
