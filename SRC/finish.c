@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   finish.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rstrub <rstrub@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rostrub <rostrub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 09:28:42 by rstrub            #+#    #+#             */
-/*   Updated: 2022/05/23 15:31:29 by rstrub           ###   ########.fr       */
+/*   Updated: 2024/05/17 14:47:22 by rostrub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ int	ft_mouse(t_vars *so)
 
 void	ft_leave(t_vars *so)
 {
-	ft_free_m(so);
-	mlx_destroy_window(so->mlx, so->win);
+	ft_free_m(so->map);
 	mlx_destroy_image(so->mlx, so->ground);
 	mlx_destroy_image(so->mlx, so->wall);
 	mlx_destroy_image(so->mlx, so->exit);
@@ -33,16 +32,16 @@ void	ft_leave(t_vars *so)
 	mlx_loop_end(so->mlx);
 }
 
-void	ft_free_m(t_vars *so)
+void	ft_free_m(char **map)
 {
 	int	y;
 
 	y = 0;
-	while (so->map[y])
+	while (map[y])
 	{
-		free(so->map[y]);
+		free(map[y]);
 		y++;
 	}
-	free(so->map);
-	so->map = NULL;
+	free(map);
+	map = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: rostrub <rostrub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 15:30:58 by ertupop           #+#    #+#             */
-/*   Updated: 2024/05/15 08:50:44 by rostrub          ###   ########.fr       */
+/*   Updated: 2024/05/17 14:49:38 by rostrub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,20 @@ int	ft_hook(int key, t_vars *so)
 	return (0);
 }
 
+int	ft_load_mlx(t_vars *so_long)
+{
+	so_long->mlx = mlx_init();
+	if (!so_long->mlx)
+		return (-1);
+	ft_load_img(so_long);
+	so_long->win = mlx_new_window(so_long->mlx, so_long->sizex * 32,
+			so_long->sizey * 32, "So_long");
+	put_img(so_long);
+	mlx_key_hook(so_long->win, &ft_hook, so_long);
+	mlx_hook(so_long->win, 17, 0, &ft_mouse, so_long);
+	return (0);
+}
+
 int	main(int ac, char **av)
 {
 	t_vars	so_long;
@@ -56,21 +70,17 @@ int	main(int ac, char **av)
 	if (ft_map_checker(so_long.map) != 0)
 		return (ft_error(ft_map_checker(so_long.map)));
 	ft_map_info(&so_long);
-	printf("nombre de collectible : %d\n", so_long.c);
-	printf("resultat checker : %d\n", ft_is_playable(so_long, av[1]));
-		// return (ft_error()); // ici je test si c'est jouable
-	so_long.mlx = mlx_init();
-	if (!so_long.mlx)
+	if (ft_is_playable(so_long, av[1]) == 0)
+	{
+		ft_free_m(so_long.map);
+		return (ft_error(7));
+	}
+	if (ft_load_mlx(&so_long) == -1)
 		return (-1);
-	ft_load_img(&so_long);
-	so_long.win = mlx_new_window(so_long.mlx, so_long.sizex * 32,
-			so_long.sizey * 32, "So_long");
-	put_img(&so_long);
-	mlx_key_hook(so_long.win, &ft_hook, &so_long);
-	mlx_hook(so_long.win, 17, 0, &ft_mouse, &so_long);
 	if (so_long.mlx)
 		mlx_loop(so_long.mlx);
+	mlx_destroy_window(so_long.mlx, so_long.win);
 	mlx_destroy_display(so_long.mlx);
 	free(so_long.mlx);
-	return (1);
+	return (0);
 }

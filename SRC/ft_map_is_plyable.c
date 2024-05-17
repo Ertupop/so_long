@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map_is_plyable.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ertupop <ertupop@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rostrub <rostrub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:14:41 by rostrub           #+#    #+#             */
-/*   Updated: 2024/05/16 15:19:35 by ertupop          ###   ########.fr       */
+/*   Updated: 2024/05/17 13:49:00 by rostrub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,70 +20,39 @@ int	ft_is_playable(t_vars so, char *path)
 	check.map = ft_map_import(path);
 	if (check.map == NULL)
 		return (0);
-	if (ft_all_collect(so, so.playerx, so.playery, &check) != 1)
+	if (ft_all_collect(so, so.playerx, so.playery, &check) == 0)
+	{
+		ft_free_m(check.map);
 		return (0);
+	}
+	ft_reset_map(&check);
+	if (ft_exit_playable(so, so.playerx, so.playery, &check) == 0)
+	{
+		ft_free_m(check.map);
+		return (0);
+	}
+	ft_free_m(check.map);
 	return (1);
 }
 
-void	ft_print_map(char **map)
+void	ft_reset_map(t_check *check)
 {
 	int	i;
+	int	i2;
 
 	i = 0;
-	while (map[i])
+	if (check->map)
 	{
-		printf("%s", map[i]);
-		i++;
+		while (check->map[i])
+		{
+			i2 = 0;
+			while (check->map[i][i2])
+			{
+				if (check->map[i][i2] == '2')
+					check->map[i][i2] = '0';
+				i2++;
+			}
+			i++;
+		}
 	}
-	write(1, "\n", 1);
-}
-
-int	ft_all_collect(t_vars so, int x, int y, t_check *check)
-{
-
-	int ok;
-
-	ok = 0;
-	printf("counter : %d\n", check->counter);
-	if (check->counter == so.c)
-		return (1);
-	if (check->map[y - 1][x] != '1' && check->map[y - 1][x] != 'P'
-		&& check->map[y - 1][x] != '2' && ok == 0)
-	{
-		if (check->map[y - 1][x] == 'C')
-			check->counter ++;
-		if (check->map[y - 1][x] == 'C' || check->map[y - 1][x] == '0')
-			check->map[y - 1][x] = '2';
-		ok = ft_all_collect(so, x, y - 1, check);
-	}
-	if (check->map[y + 1][x] != '1' && check->map[y + 1][x] != 'P'
-			&& check->map[y + 1][x] != '2' && ok == 0)
-	{
-		if (check->map[y + 1][x] == 'C')
-			check->counter ++;
-		if (check->map[y + 1][x] == 'C' || check->map[y + 1][x] == '0')
-			check->map[y + 1][x] = '2';
-		ok = ft_all_collect(so, x, y + 1, check);
-	}
-	if (check->map[y][x + 1] != '1' && check->map[y][x + 1] != 'P'
-		&& check->map[y][x + 1] != '2' && ok == 0)
-	{
-		if (check->map[y][x + 1] == 'C')
-			check->counter ++;
-		if (check->map[y][x + 1] == 'C' || check->map[y][x + 1] == '0')
-			check->map[y][x + 1] = '2';
-		ok = ft_all_collect(so, x + 1, y, check);
-	}
-	if (check->map[y][x - 1] != '1' && check->map[y][x - 1] != 'P'
-		&& check->map[y][x - 1] != '2' && ok == 0)
-	{
-		if (check->map[y][x - 1] == 'C')
-			check->counter ++;
-		if (check->map[y][x - 1] == 'C' || check->map[y][x - 1] == '0')
-			check->map[y][x - 1] = '2';
-		ok = ft_all_collect(so, x - 1, y, check);
-	}
-	if(ok == 1)
-		return (1);
-	return (0);
 }

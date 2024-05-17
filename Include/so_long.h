@@ -6,7 +6,7 @@
 /*   By: rostrub <rostrub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 10:19:35 by ertupop           #+#    #+#             */
-/*   Updated: 2024/05/16 14:57:56 by rostrub          ###   ########.fr       */
+/*   Updated: 2024/05/17 14:02:15 by rostrub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,26 @@ void	ft_up(t_vars *so);
 void	ft_down(t_vars *so);
 void	ft_left(t_vars *so);
 void	ft_right(t_vars *so);
+void	ft_put_good_image(t_vars *so);
 
 //
 void	ft_load(t_vars *so_long, int x, int y);
 void	*ft_load_img(t_vars *so_long);
 void	*put_img(t_vars *so_long);
 void	ft_leave(t_vars *so);
-void	ft_free_m(t_vars *so);
+void	ft_free_m(char **map);
 int		ft_mouse(t_vars *so);
 
 //ft_is_playable
 int		ft_is_playable(t_vars so, char *path);
+void	ft_reset_map(t_check *check);
+
+//ft_chck_collectible
 int		ft_all_collect(t_vars so, int x, int y, t_check *check);
+int		ft_collect_move(t_check *check, int x, int y, t_vars so);
+
+
+//ft_check_exit
+int		ft_exit_move(t_check *check, int x, int y, t_vars so);
+int		ft_exit_playable(t_vars so, int x, int y, t_check *check);
 #endif

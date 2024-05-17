@@ -6,15 +6,17 @@
 #    By: rostrub <rostrub@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/21 10:59:33 by rstrub            #+#    #+#              #
-#    Updated: 2024/05/15 09:00:07 by rostrub          ###   ########.fr        #
+#    Updated: 2024/05/17 14:02:33 by rostrub          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS  = SRC/so_long.c SRC/ft_error.c SRC/ft_load_img.c SRC/map_checker.c \
 		SRC/map_import.c gnl/get_next_line.c gnl/get_next_line_utils.c \
-			SRC/ft_map_info.c SRC/move.c SRC/finish.c SRC/ft_map_is_plyable.c
+			SRC/ft_map_info.c SRC/move.c SRC/finish.c SRC/ft_map_is_plyable.c\
+			SRC/ft_check_collectible.c SRC/ft_check_exit.c
 
 OBJS  = ${SRCS:.c=.o}
+DEPS  = ${SRCS:.c=.d}
 NAME  = so_long
 HEADER = so_long.h
 CC = cc
