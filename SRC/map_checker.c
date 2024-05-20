@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rstrub <rstrub@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rostrub <rostrub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 09:26:35 by ertupop           #+#    #+#             */
-/*   Updated: 2022/05/23 14:56:05 by rstrub           ###   ########.fr       */
+/*   Updated: 2024/05/20 10:01:51 by rostrub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,16 @@ int	ft_map_checker(char **map)
 	int	i;
 
 	i = ft_check_len(map);
-	if (i != 0)
-		return (1);
+	if (i == 0)
 	i = ft_check_wall(map);
-	if (i != 0)
-		return (2);
+	if (i == 0)
 	i = ft_check_content(map);
 	if (i != 0)
-		return (3);
-	return (0);
+	{
+		ft_error(i);
+		ft_free_m(map);
+	}
+	return (i);
 }
 
 int	ft_check_len(char **map)
@@ -58,10 +59,10 @@ int	ft_check_wall(char **map)
 		while (map[i][i2] && map[i][i2] != '\n')
 		{
 			if ((i == 0 || map[i + 1] == NULL) && map[i][i2] != '1')
-				return (1);
+				return (2);
 			else if ((i2 == 0 || map[i][i2 + 1] == '\0'
 				|| map[i][i2 + 1] == '\n') && map[i][i2] != '1')
-				return (1);
+				return (2);
 			i2++;
 		}
 		i++;
@@ -85,16 +86,16 @@ int	ft_check_content(char **map)
 		while (map[i][i2])
 		{
 			if (map[i][i2] == 'C')
-				tab[0] = tab[0] + 1;
+				tab[0]++;
 			if (map[i][i2] == 'E')
-				tab[1] = tab[1] + 1;
+				tab[1]++;
 			if (map[i][i2] == 'P')
-				tab[2] = tab[2] + 1;
+				tab[2]++;
 			i2++;
 		}
 	}
-	if (tab[0] < 1 || tab[1] < 1 || tab[2] < 1)
-		return (1);
+	if (tab[0] < 1 || tab[1] != 1 || tab[2] != 1)
+		return (3);
 	return (0);
 }
 /*

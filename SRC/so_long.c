@@ -6,7 +6,7 @@
 /*   By: rostrub <rostrub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 15:30:58 by ertupop           #+#    #+#             */
-/*   Updated: 2024/05/17 14:49:38 by rostrub          ###   ########.fr       */
+/*   Updated: 2024/05/20 10:24:16 by rostrub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,16 @@ int	ft_hook(int key, t_vars *so)
 int	ft_load_mlx(t_vars *so_long)
 {
 	so_long->mlx = mlx_init();
-	if (!so_long->mlx)
+	if (!so_long->mlx || ft_load_img(so_long))
+	{
+		ft_free_m(so_long->map);
+		if (so_long->mlx)
+		{
+			mlx_destroy_display(so_long->mlx);
+			free(so_long->mlx);
+		}
 		return (-1);
-	ft_load_img(so_long);
+	}
 	so_long->win = mlx_new_window(so_long->mlx, so_long->sizex * 32,
 			so_long->sizey * 32, "So_long");
 	put_img(so_long);
@@ -68,7 +75,7 @@ int	main(int ac, char **av)
 	if (so_long.map == NULL)
 		return (ft_error(4));
 	if (ft_map_checker(so_long.map) != 0)
-		return (ft_error(ft_map_checker(so_long.map)));
+		return (0);
 	ft_map_info(&so_long);
 	if (ft_is_playable(so_long, av[1]) == 0)
 	{

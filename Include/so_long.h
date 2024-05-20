@@ -6,7 +6,7 @@
 /*   By: rostrub <rostrub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 10:19:35 by ertupop           #+#    #+#             */
-/*   Updated: 2024/05/17 14:02:15 by rostrub          ###   ########.fr       */
+/*   Updated: 2024/05/20 10:20:23 by rostrub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,12 @@ void	ft_put_good_image(t_vars *so);
 
 //
 void	ft_load(t_vars *so_long, int x, int y);
-void	*ft_load_img(t_vars *so_long);
+int		ft_load_img(t_vars *so_long);
 void	*put_img(t_vars *so_long);
 void	ft_leave(t_vars *so);
 void	ft_free_m(char **map);
 int		ft_mouse(t_vars *so);
+int		ft_check_load(t_vars *s);
 
 //ft_is_playable
 int		ft_is_playable(t_vars so, char *path);
