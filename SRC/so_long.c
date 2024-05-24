@@ -6,7 +6,7 @@
 /*   By: rostrub <rostrub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 15:30:58 by ertupop           #+#    #+#             */
-/*   Updated: 2024/05/20 10:24:16 by rostrub          ###   ########.fr       */
+/*   Updated: 2024/05/24 08:22:58 by rostrub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int	ft_load_mlx(t_vars *so_long)
 			mlx_destroy_display(so_long->mlx);
 			free(so_long->mlx);
 		}
+		write(2, "Error\n Load Images\n", 20);
 		return (-1);
 	}
 	so_long->win = mlx_new_window(so_long->mlx, so_long->sizex * 32,

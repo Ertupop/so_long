@@ -6,7 +6,7 @@
 /*   By: rostrub <rostrub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 10:19:35 by ertupop           #+#    #+#             */
-/*   Updated: 2024/05/20 10:20:23 by rostrub          ###   ########.fr       */
+/*   Updated: 2024/05/24 08:19:24 by rostrub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ void	ft_reset_map(t_check *check);
 //ft_chck_collectible
 int		ft_all_collect(t_vars so, int x, int y, t_check *check);
 int		ft_collect_move(t_check *check, int x, int y, t_vars so);
-
 
 //ft_check_exit
 int		ft_exit_move(t_check *check, int x, int y, t_vars so);
