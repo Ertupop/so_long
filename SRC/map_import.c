@@ -23,13 +23,13 @@ char	**ft_map_import(char *map_path)
 		return (NULL);
 	i = ft_nb_line(map_path);
 	i2 = -1;
+	fd = open(map_path, O_RDONLY);
+	if (fd < 0)
+		return (NULL);
 	map = malloc(sizeof(char *) * (i + 1));
 	if (!map)
 		return (NULL);
 	map[i] = NULL;
-	fd = open(map_path, O_RDONLY);
-	if (fd < 0)
-		return (NULL);
 	while (++i2 < i)
 	{
 		map[i2] = get_next_line(fd);

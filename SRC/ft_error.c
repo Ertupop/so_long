@@ -30,7 +30,7 @@ int	ft_map_error(int error)
 	if (error == 2)
 		write(1, "Wall Missing\n", 14);
 	if (error == 3)
-		write (1, "Content Missing\n", 17);
+		write (1, "Content error\n", 15);
 	if (error == 4)
 		write(1, "Import Fail\n", 13);
 	if (error == 7)
