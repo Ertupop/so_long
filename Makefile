@@ -24,7 +24,7 @@ MLX = mlx/libmlx_Linux.a
 PRINTF = printf/libftprintf.a
 
 %.o: %.c
-	$(CC) -Wall -Wextra -Werror -g -I/usr/include -Imlx -O0 -c $< -o $@
+	$(CC) -Wall -Wextra -Werror -g -I/usr/include -Imlx -c $< -o $@
 
 $(NAME): $(OBJS) $(MLX) $(PRINTF)
 	$(CC) $(OBJS) -g -Lprintf -lftprintf -Lmlx -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz -o $(NAME)
